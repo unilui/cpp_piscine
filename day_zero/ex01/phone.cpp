@@ -33,10 +33,13 @@ std::string	warning_symbol[] = {
 	"██░░░░░░░░░░░░░░██████░░░░░░░░░░░░░░██",
 	"██░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░██",
 	"██░░░░░░░░░░░░░░░░██████░░░░░░░░░░░░░░░░██",
-	"██░░░░░░░░░░░░░░░░█ 05 █░░░░░░░░░░░░░░░░██",
 	"██░░░░░░░░░░░░░░░░░░██████░░░░░░░░░░░░░░░░░░██",
 	"██░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░██",
 	"██████████████████████████████████████████"
+	"\n",
+	"The phonebook can be very impatient!\n",
+	"They didn't want to be written in C++\n",
+	"They prefer Golang :)"
 };
 
 void	put_padding(int size)
@@ -45,32 +48,48 @@ void	put_padding(int size)
 		std::cout << ' ';
 }
 
-void	header(void)
+void	warning(void)
 {
 	winsize size;
  	ioctl(STDOUT_FILENO, TIOCGWINSZ, &size);
  	int width = size.ws_col;
 	int height = size.ws_row;
 
-	for (int i = 0; i < 16; i++)
+	int line = 0;
+	int time = 5;
+	while (time > 0)
 	{
-		put_padding((width / 2) - (warning_symbol[i].length() / 3) / 2);
-		std::cout << warning_symbol[i] << std::endl;
+		std::cout << "\033c";
+		std::cout << "\033[38;2;255;0;0m";
+		while (line < 16)
+		{
+			put_padding((width / 2) - (warning_symbol[line].length() / 3) / 2);
+			std::cout << warning_symbol[line++] << std::endl;
+		}
+		put_padding((width / 2) - 21);
+		std::cout << "██░░░░░░░░░░░░░░░░█ 0" << time-- << " █░░░░░░░░░░░░░░░░██" << std::endl;
+		while (line < 19)
+		{
+			put_padding((width / 2) - (warning_symbol[line].length() / 3) / 2);
+			std::cout << warning_symbol[line++] << std::endl;
+		}
+		while(line < 23)
+		{
+			put_padding((width / 2) - (warning_symbol[line].length() / 2));
+			std::cout << warning_symbol[line++] << std::endl;
+		}
+		line = 0;
+		sleep(1);
 	}
-	put_padding((width / 2) - 21);
-	std::cout << "██░░░░░░░░░░░░░░░░█" << " 05 " << "█░░░░░░░░░░░░░░░░██" << std::endl;
-	for (int i = 17; i < 20; i++)
-	{
-		put_padding((width / 2) - (warning_symbol[i].length() / 3) / 2);
-		std::cout << warning_symbol[i] << std::endl;
-	}
+	std::cout << "\033c";
 }
 
 int	main(void)
 {
 	std::string	option;
 
-	header();	while(true)
+	warning();
+	while(true)
 	{
 		std::cin >> option;
 		if (std::cin.eof())
@@ -83,10 +102,12 @@ int	main(void)
 		else if (!option.compare("SEARCH"))
 			std::cout << "The chairman is an asshole" << std::endl;
 		else if (!option.compare("EXIT"))
+		{
 			std::cout << "Not sorry to see you go :)" << std::endl;
+			return (0);
+		}
 		else
 			std::cout << "You're really stupid :)" << std::endl;
 	}
 	return (0);
 }
-ṕoiuytr
