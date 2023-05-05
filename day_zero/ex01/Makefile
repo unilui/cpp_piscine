@@ -1,4 +1,4 @@
-SRCS 		=	phone.cpp
+SRCS 		=	phone.cpp Display.cpp
 OBJS		=	${SRCS:%.c=$(OBJS_DIR)%.o}
 OBJS_DIR	=	objects/
 NAME		=	phone
