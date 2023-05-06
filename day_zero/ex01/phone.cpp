@@ -43,8 +43,13 @@ int	main(void)
 			case EXIT:
 				display.whisper("Not sorry to see you go :)");
 				break;
+			case INVALID:
+				display.whisper("Not sorry to see you go :)");
+				return (1);
+				break;
 			default:
 				display.whisper("You're really stupid :)");
+				// code to be executed if none of the above cases are true
 		}
 	}
 	return (0);
