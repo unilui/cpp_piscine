@@ -15,6 +15,11 @@
 #include <iostream>
 #include "Display.hpp"
 
+#define ADD		0
+#define SEARCH	1
+#define EXIT	2
+#define INVALID 3
+
 std::string	options[] = {
 	"ADD",
 	"SEARCH",
@@ -23,29 +28,24 @@ std::string	options[] = {
 
 int	main(void)
 {
-	std::string	option;
 	Display		display;
 
 	display.warning();
 	while(display.big_enough())
 	{
-		std::cin >> option;
-		if (display.invalid_input())
-		{
-			display.whisper("Are you idiot?");
-			return (1);
+		switch (display.get_option(options, 3)) {
+			case ADD:
+				display.whisper("The customer is always wrong");
+				break;
+			case SEARCH:
+				display.whisper("The chairman is an asshole");
+				break;
+			case EXIT:
+				display.whisper("Not sorry to see you go :)");
+				break;
+			default:
+				display.whisper("You're really stupid :)");
 		}
-		if (!option.compare("ADD"))
-			display.whisper("The customer is always wrong");
-		else if (!option.compare("SEARCH"))
-			std::cout << "The chairman is an asshole" << std::endl;
-		else if (!option.compare("EXIT"))
-		{
-			std::cout << "Not sorry to see you go :)" << std::endl;
-			return (0);
-		}
-		else
-			std::cout << "You're really stupid :)" << std::endl;
 	}
 	return (0);
 }

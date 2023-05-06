@@ -6,7 +6,7 @@
 /*   By: lufelip2 <lufelip2@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/04 21:34:58 by lufelip2          #+#    #+#             */
-/*   Updated: 2023/05/04 22:15:37 by lufelip2         ###   ########.fr       */
+/*   Updated: 2023/05/06 19:35:17 by lufelip2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ public:
 	bool	big_enough(void);
 	bool	invalid_input(void);
 	void	whisper(std::string message);
-	int		get_option();
+	int		get_option(std::string	options[], int counter);
 };
 
 #endif
