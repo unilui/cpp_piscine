@@ -15,22 +15,28 @@
 #include <iostream>
 #include "Display.hpp"
 
+std::string	options[] = {
+	"ADD",
+	"SEARCH",
+	"EXIT"
+};
+
 int	main(void)
 {
 	std::string	option;
 	Display		display;
 
 	display.warning();
-	while(true)
+	while(display.big_enough())
 	{
 		std::cin >> option;
-		if (std::cin.eof())
+		if (display.invalid_input())
 		{
-			std::cout << "Are you idiot?" << std::endl;
+			display.whisper("Are you idiot?");
 			return (1);
 		}
 		if (!option.compare("ADD"))
-			std::cout << "The customer is always wrong" << std::endl;
+			display.whisper("The customer is always wrong");
 		else if (!option.compare("SEARCH"))
 			std::cout << "The chairman is an asshole" << std::endl;
 		else if (!option.compare("EXIT"))

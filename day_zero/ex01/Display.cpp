@@ -48,7 +48,27 @@ Display::Display( void )
 {
 }
 
+bool	Display::big_enough(void)
+{
+	return true;
+}
 
+bool	Display::invalid_input(void)
+{
+	return std::cin.eof();
+}
+
+void	Display::whisper(std::string message)
+{
+	std::cout << message << std::endl;
+}
+
+int	Display::get_option(std::string	options)
+{
+	int i = 0;
+	while (options[i])
+		std::cout << options[i] <<  std::endl;
+}
 
 void	Display::warning( void )
 {

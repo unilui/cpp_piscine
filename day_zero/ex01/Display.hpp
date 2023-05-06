@@ -15,6 +15,7 @@
 #include <string>
 #include <sys/ioctl.h>
 #include <unistd.h>
+#include <stdarg.h>
 
 #ifndef DISPLAY_H
 # define DISPLAY_H
@@ -26,6 +27,10 @@ public:
 	~Display( void );
 
 	void	warning(void);
+	bool	big_enough(void);
+	bool	invalid_input(void);
+	void	whisper(std::string message);
+	int		get_option();
 };
 
 #endif
