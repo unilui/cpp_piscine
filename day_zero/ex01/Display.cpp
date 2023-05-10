@@ -6,11 +6,14 @@
 /*   By: lufelip2 <lufelip2@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/04 21:37:15 by lufelip2          #+#    #+#             */
-/*   Updated: 2023/05/06 20:00:05 by lufelip2         ###   ########.fr       */
+/*   Updated: 2023/05/09 22:32:06 by lufelip2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Display.hpp"
+
+Display::Display( void ) { return ; }
+Display::~Display( void ) { return ; }
 
 std::string	warning_symbol[] = {
 	"██",
@@ -42,10 +45,6 @@ void	put_padding(int size)
 {
 	for (int i = 0; i < size; i++)
 		std::cout << ' ';
-}
-
-Display::Display( void )
-{
 }
 
 bool	Display::big_enough(void)
@@ -110,8 +109,4 @@ void	Display::warning( void )
 		sleep(1);
 	}
 	std::cout << "\033c";
-}
-
-Display::~Display( void )
-{
 }
