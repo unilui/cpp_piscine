@@ -6,9 +6,12 @@
 /*   By: lufelip2 <lufelip2@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/04 21:34:58 by lufelip2          #+#    #+#             */
-/*   Updated: 2023/05/09 18:21:47 by lufelip2         ###   ########.fr       */
+/*   Updated: 2023/05/10 19:22:22 by lufelip2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#ifndef DISPLAY_H
+# define DISPLAY_H
 
 #include <iostream>
 #include <iomanip>
@@ -16,9 +19,6 @@
 #include <sys/ioctl.h>
 #include <unistd.h>
 #include <stdarg.h>
-
-#ifndef DISPLAY_H
-# define DISPLAY_H
 
 class Display {
 

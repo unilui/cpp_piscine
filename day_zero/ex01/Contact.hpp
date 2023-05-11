@@ -6,17 +6,17 @@
 /*   By: lufelip2 <lufelip2@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/30 17:28:49 by lufelip2          #+#    #+#             */
-/*   Updated: 2023/05/09 22:22:57 by lufelip2         ###   ########.fr       */
+/*   Updated: 2023/05/10 19:13:15 by lufelip2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#ifndef CONTACT_H
+# define CONTACT_H
 
 #include <string>
 #include <iomanip>
 #include <iostream>
 #include <sstream>
-
-#ifndef CONTACT_H
-# define CONTACT_H
 
 class Contact {
 

@@ -14,7 +14,7 @@
 #include <iomanip>
 #include <iostream>
 #include "Display.hpp"
-#include "Contact.hpp"
+#include "PhoneBook.hpp"
 
 #define ADD		0
 #define SEARCH	1
@@ -30,35 +30,28 @@ std::string	options[] = {
 int	main(void)
 {
 	Display		display;
-	Contact		teste;
+	PhoneBook	phonebook;
 
-	display.warning();
-	teste.set_first_name("Felipe");
-	teste.set_last_name("Camargo");
-	teste.set_nickname("Lipe");
-	teste.set_phone_number("7070-7070");
-	teste.set_darkest_secret("Weeeeeeeeee");
-	std::cout << teste.summary();
-	std::cout << teste.info();
-	//while(display.big_enough())
-	//{
-	//	switch (display.get_option(options, 3)) {
-	//		case ADD:
-	//			display.whisper("The customer is always wrong");
-	//			break;
-	//		case SEARCH:
-	//			display.whisper("The chairman is an asshole");
-	//			break;
-	//		case EXIT:
-	//			display.whisper("Not sorry to see you go :)");
-	//			break;
-	//		case INVALID:
-	//			display.whisper("Not sorry to see you go :)");
-	//			return (1);
-	//			break;
-	//		default:
-	//			display.whisper("You're really stupid :)");
-	//	}
-	//}
+	phonebook.search();
+	while(display.big_enough())
+	{
+		switch (display.get_option(options, 3)) {
+			case ADD:
+				display.whisper("The customer is always wrong");
+				break;
+			case SEARCH:
+				display.whisper("The chairman is an asshole");
+				break;
+			case EXIT:
+				display.whisper("Not sorry to see you go :)");
+				break;
+			case INVALID:
+				display.whisper("Not sorry to see you go :)");
+				return (1);
+				break;
+			default:
+				display.whisper("You're really stupid :)");
+		}
+	}
 	return (0);
 }
