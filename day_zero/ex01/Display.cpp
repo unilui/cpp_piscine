@@ -6,7 +6,7 @@
 /*   By: lufelip2 <lufelip2@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/04 21:37:15 by lufelip2          #+#    #+#             */
-/*   Updated: 2023/05/09 22:32:06 by lufelip2         ###   ########.fr       */
+/*   Updated: 2023/05/13 18:34:33 by lufelip2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,17 +62,30 @@ void	Display::whisper(std::string message)
 	std::cout << message << std::endl;
 }
 
+void	Display::show_menu(std::string	options[], int counter)
+{
+	std::cout << std::endl;
+	std::cout << "Options: ";
+	for (int i = 0; i < counter; i++)
+		std::cout << "[ " << options[i] << " ]";
+	std::cout << std::endl;
+	std::cout << "Op: ";
+}
+
 int	Display::get_option(std::string	options[], int counter)
 {
 	std::string	option;
 
-	std::cin >> option;
+	this->show_menu(options, counter);
+	std::getline(std::cin, option);
 	for (int i = 0; i < counter; i++)
 	{
 		if (!option.compare(options[i]))
 			return (i);
 	}
-	return (counter);
+	if (this->invalid_input())
+		return (counter);
+	return (counter + 1);
 }
 
 void	Display::warning( void )

@@ -32,25 +32,30 @@ int	main(void)
 	Display		display;
 	PhoneBook	phonebook;
 
-	phonebook.search();
 	while(display.big_enough())
 	{
+		if (display.invalid_input())
+		{
+			display.whisper("\nGod knows I tried :)");
+			return (1);
+		}
 		switch (display.get_option(options, 3)) {
 			case ADD:
-				display.whisper("The customer is always wrong");
+				phonebook.add();
 				break;
 			case SEARCH:
-				display.whisper("The chairman is an asshole");
+				phonebook.search();
 				break;
 			case EXIT:
 				display.whisper("Not sorry to see you go :)");
+				return (0);
 				break;
 			case INVALID:
-				display.whisper("Not sorry to see you go :)");
+				display.whisper("\nGod knows I tried :)");
 				return (1);
 				break;
 			default:
-				display.whisper("You're really stupid :)");
+				display.whisper("Did you read the fucking options? :)");
 		}
 	}
 	return (0);

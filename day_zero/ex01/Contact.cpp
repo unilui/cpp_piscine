@@ -6,7 +6,7 @@
 /*   By: lufelip2 <lufelip2@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/09 18:15:12 by lufelip2          #+#    #+#             */
-/*   Updated: 2023/05/09 22:30:12 by lufelip2         ###   ########.fr       */
+/*   Updated: 2023/05/13 19:06:06 by lufelip2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,30 +15,99 @@
 Contact::Contact(void) { return ; }
 Contact::~Contact(void) { return ; }
 
-
-void	Contact::set_first_name(std::string new_first_name)
+void	Contact::set_first_name( void )
 {
-	this->first_name = new_first_name;
+	if (std::cin.eof())
+		return ;
+// Check if is only letters
+	std::string first_name;
+
+	while (true)
+	{
+		std::cout << "First name: ";
+		std::getline(std::cin, first_name);
+		if (std::cin.eof())
+			return ;
+		if (first_name.length() > 0)
+			break ;
+	}
+	this->first_name = first_name;
 }
 
-void	Contact::set_last_name(std::string new_last_name)
+void	Contact::set_last_name( void )
 {
-	this->last_name = new_last_name;
+	if (std::cin.eof())
+		return ;
+
+	std::string last_name;
+
+	while (true)
+	{
+		std::cout << "Last name: ";
+		std::getline(std::cin, last_name);
+		if (std::cin.eof())
+			return ;
+		if (last_name.length() > 0)
+			break ;
+	}
+	this->last_name = last_name;
 }
 
-void	Contact::set_phone_number(std::string new_phone_number)
+void	Contact::set_phone_number( void )
 {
-	this->phone_number = new_phone_number;
+	if (std::cin.eof())
+		return ;
+
+	std::string phone_number;
+
+	while (true)
+	{
+		std::cout << "Phone number: ";
+		std::getline(std::cin, phone_number);
+		if (std::cin.eof())
+			return ;
+		if (phone_number.length() > 0)
+			break ;
+	}
+	this->phone_number = phone_number;
 }
 
-void	Contact::set_nickname(std::string new_nickname)
+void	Contact::set_nickname( void )
 {
-	this->nickname = new_nickname;
+	if (std::cin.eof())
+		return ;
+
+	std::string nickname;
+
+	while (true)
+	{
+		std::cout << "Nickname: ";
+		std::getline(std::cin, nickname);
+		if (std::cin.eof())
+			return ;
+		if (nickname.length() > 0)
+			break ;
+	}
+	this->nickname = nickname;
 }
 
-void	Contact::set_darkest_secret(std::string new_darkest_secret)
+void	Contact::set_darkest_secret( void )
 {
-	this->darkest_secret = new_darkest_secret;
+	if (std::cin.eof())
+		return ;
+
+	std::string darkest_secret;
+
+	while (true)
+	{
+		std::cout << "Darkest secret: ";
+		std::getline(std::cin, darkest_secret);
+		if (std::cin.eof())
+			return ;
+		if (darkest_secret.length() > 0)
+			break ;
+	}
+	this->darkest_secret = darkest_secret;
 }
 
 std::string	Contact::truncate(std::string string)
@@ -49,6 +118,16 @@ std::string	Contact::truncate(std::string string)
 		string[9] = '.';
 	}
 	return (string);
+}
+
+bool	Contact::is_empty(void)
+{
+	return (this->empty);
+}
+
+void	Contact::save(void)
+{
+	this->empty = false;
 }
 
 std::string	Contact::summary(void)

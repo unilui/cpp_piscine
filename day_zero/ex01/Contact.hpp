@@ -6,7 +6,7 @@
 /*   By: lufelip2 <lufelip2@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/30 17:28:49 by lufelip2          #+#    #+#             */
-/*   Updated: 2023/05/10 19:13:15 by lufelip2         ###   ########.fr       */
+/*   Updated: 2023/05/13 18:29:31 by lufelip2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ private:
 	std::string	nickname;
 	std::string	phone_number;
 	std::string	darkest_secret;
+	bool		empty = true;
 
 	std::string	truncate(std::string string);
 
@@ -33,11 +34,13 @@ public:
 	Contact( void );
 	~Contact( void );
 
-	void		set_first_name(std::string new_first_name);
-	void		set_last_name(std::string new_last_name);
-	void		set_nickname(std::string new_nickname);
-	void		set_phone_number(std::string new_phone_number);
-	void		set_darkest_secret(std::string new_darkest_secret);
+	void		set_first_name( void );
+	void		set_last_name( void );
+	void		set_nickname( void );
+	void		set_phone_number( void );
+	void		set_darkest_secret( void );
+	bool		is_empty(void);
+	void		save(void);
 
 	std::string	summary(void);
 	std::string	info(void);

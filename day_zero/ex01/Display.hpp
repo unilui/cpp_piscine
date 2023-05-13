@@ -6,7 +6,7 @@
 /*   By: lufelip2 <lufelip2@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/04 21:34:58 by lufelip2          #+#    #+#             */
-/*   Updated: 2023/05/10 19:22:22 by lufelip2         ###   ########.fr       */
+/*   Updated: 2023/05/12 17:41:56 by lufelip2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,10 @@
 #include <stdarg.h>
 
 class Display {
+
+private:
+
+	void	show_menu(std::string	options[], int counter);
 
 public:
 	Display( void );
