@@ -10,52 +10,36 @@
 /* */
 /* ************************************************************************** */
 
-#include <string>
-#include <iomanip>
-#include <iostream>
-#include "Display.hpp"
 #include "PhoneBook.hpp"
-
-#define ADD		0
-#define SEARCH	1
-#define EXIT	2
-#define INVALID 3
-
-std::string	options[] = {
-	"ADD",
-	"SEARCH",
-	"EXIT"
-};
 
 int	main(void)
 {
-	Display		display;
 	PhoneBook	phonebook;
 
-	while(display.big_enough())
+	while(true)
 	{
-		if (display.invalid_input())
+		if (phonebook.invalid_input())
 		{
-			display.whisper("\nGod knows I tried :)");
+			phonebook.whisper("\nGod knows I tried :)");
 			return (1);
 		}
-		switch (display.get_option(options, 3)) {
-			case ADD:
+		switch (phonebook.get_option()) {
+			case _PHONE_ADD_:
 				phonebook.add();
 				break;
-			case SEARCH:
+			case _PHONE_SEARCH_:
 				phonebook.search();
 				break;
-			case EXIT:
-				display.whisper("Not sorry to see you go :)");
+			case _PHONE_EXIT_:
+				phonebook.whisper("Not sorry to see you go :)");
 				return (0);
 				break;
-			case INVALID:
-				display.whisper("\nGod knows I tried :)");
+			case _PHONE_INVALID_:
+				phonebook.whisper("\nGod knows I tried :)");
 				return (1);
 				break;
 			default:
-				display.whisper("Did you read the fucking options? :)");
+				phonebook.whisper("Did you read the fucking options? :)");
 		}
 	}
 	return (0);

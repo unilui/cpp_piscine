@@ -6,7 +6,7 @@
 /*   By: lufelip2 <lufelip2@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/10 18:17:21 by lufelip2          #+#    #+#             */
-/*   Updated: 2023/05/13 18:40:21 by lufelip2         ###   ########.fr       */
+/*   Updated: 2023/05/15 19:03:28 by lufelip2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,6 +71,7 @@ void	PhoneBook::search( void )
 
 void	PhoneBook::add( void )
 {
+	std::cout << std::endl;
 	this->contacts[this->actual_index].set_first_name();
 	this->contacts[this->actual_index].set_last_name();
 	this->contacts[this->actual_index].set_nickname();
@@ -79,4 +80,42 @@ void	PhoneBook::add( void )
 	this->contacts[this->actual_index].save();
 	if (this->actual_index < 7)
 		this->actual_index++;
+}
+
+void	PhoneBook::whisper(std::string message)
+{
+	std::cout << message << std::endl;
+}
+
+bool	PhoneBook::invalid_input(void)
+{
+	return std::cin.eof();
+}
+
+void	PhoneBook::show_menu( void )
+{
+	std::cout << std::endl;
+	std::cout << "Options: ";
+	std::cout << "[ " << "ADD" << " ]";
+	std::cout << "[ " << "SEARCH" << " ]";
+	std::cout << "[ " << "EXIT" << " ]";
+	std::cout << std::endl;
+	std::cout << "Op: ";
+}
+
+int	PhoneBook::get_option( void )
+{
+	std::string	option;
+
+	this->show_menu();
+	std::getline(std::cin, option);
+	if (!option.compare("ADD"))
+		return (0);
+	if (!option.compare("SEARCH"))
+		return (1);
+	if (!option.compare("EXIT"))
+		return (2);
+	if (this->invalid_input())
+		return (3);
+	return (4);
 }

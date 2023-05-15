@@ -6,7 +6,7 @@
 /*   By: lufelip2 <lufelip2@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/30 17:28:49 by lufelip2          #+#    #+#             */
-/*   Updated: 2023/05/13 18:29:31 by lufelip2         ###   ########.fr       */
+/*   Updated: 2023/05/15 19:40:52 by lufelip2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,10 @@ private:
 	std::string	darkest_secret;
 	bool		empty = true;
 
-	std::string	truncate(std::string string);
+	bool		is_alpha(std::string str);
+	bool		is_digit(std::string str);
+	bool		is_alpha_numeric(std::string str);
+	std::string	truncate(std::string str);
 
 public:
 	Contact( void );

@@ -6,7 +6,7 @@
 /*   By: lufelip2 <lufelip2@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/09 18:15:12 by lufelip2          #+#    #+#             */
-/*   Updated: 2023/05/13 19:06:06 by lufelip2         ###   ########.fr       */
+/*   Updated: 2023/05/15 19:45:00 by lufelip2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,19 +15,48 @@
 Contact::Contact(void) { return ; }
 Contact::~Contact(void) { return ; }
 
+bool Contact::is_alpha(std::string str)
+{
+	for (char c : str)
+	{
+		if (!std::isalpha(c))
+			return false;
+	}
+	return true;
+}
+
+bool Contact::is_digit(std::string str)
+{
+	for (char c : str)
+	{
+		if (!std::isdigit(c))
+			return false;
+	}
+	return true;
+}
+
+bool Contact::is_alpha_numeric(std::string str)
+{
+	return (this->is_alpha(str) && this->is_digit(str));
+}
+
 void	Contact::set_first_name( void )
 {
-	if (std::cin.eof())
-		return ;
-// Check if is only letters
 	std::string first_name;
 
+	if (std::cin.eof())
+		return ;
 	while (true)
 	{
 		std::cout << "First name: ";
 		std::getline(std::cin, first_name);
 		if (std::cin.eof())
 			return ;
+		if (!this->is_alpha(first_name))
+		{
+			std::cout << "Only alphabetic characters, please :)\n\n";
+			continue ;
+		}
 		if (first_name.length() > 0)
 			break ;
 	}
@@ -36,17 +65,21 @@ void	Contact::set_first_name( void )
 
 void	Contact::set_last_name( void )
 {
-	if (std::cin.eof())
-		return ;
-
 	std::string last_name;
 
+	if (std::cin.eof())
+		return ;
 	while (true)
 	{
 		std::cout << "Last name: ";
 		std::getline(std::cin, last_name);
 		if (std::cin.eof())
 			return ;
+		if (!this->is_alpha(last_name))
+		{
+			std::cout << "Only alphabetic characters, please :)\n\n";
+			continue ;
+		}
 		if (last_name.length() > 0)
 			break ;
 	}
@@ -55,17 +88,21 @@ void	Contact::set_last_name( void )
 
 void	Contact::set_phone_number( void )
 {
-	if (std::cin.eof())
-		return ;
-
 	std::string phone_number;
 
+	if (std::cin.eof())
+		return ;
 	while (true)
 	{
 		std::cout << "Phone number: ";
 		std::getline(std::cin, phone_number);
 		if (std::cin.eof())
 			return ;
+		if (!this->is_digit(last_name))
+		{
+			std::cout << "Only numeric characters, please :)\n\n";
+			continue ;
+		}
 		if (phone_number.length() > 0)
 			break ;
 	}
@@ -74,17 +111,21 @@ void	Contact::set_phone_number( void )
 
 void	Contact::set_nickname( void )
 {
-	if (std::cin.eof())
-		return ;
-
 	std::string nickname;
 
+	if (std::cin.eof())
+		return ;
 	while (true)
 	{
 		std::cout << "Nickname: ";
 		std::getline(std::cin, nickname);
 		if (std::cin.eof())
 			return ;
+		if (!this->is_alpha(nickname))
+		{
+			std::cout << "Only alphabetic characters, please :)\n\n";
+			continue ;
+		}
 		if (nickname.length() > 0)
 			break ;
 	}
@@ -93,17 +134,21 @@ void	Contact::set_nickname( void )
 
 void	Contact::set_darkest_secret( void )
 {
-	if (std::cin.eof())
-		return ;
-
 	std::string darkest_secret;
 
+	if (std::cin.eof())
+		return ;
 	while (true)
 	{
 		std::cout << "Darkest secret: ";
 		std::getline(std::cin, darkest_secret);
 		if (std::cin.eof())
 			return ;
+		if (!this->is_alpha(darkest_secret))
+		{
+			std::cout << "Only alphanumeric characters, please :)\n\n";
+			continue ;
+		}
 		if (darkest_secret.length() > 0)
 			break ;
 	}
