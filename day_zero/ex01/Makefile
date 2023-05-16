@@ -1,19 +1,19 @@
-SRCS 		=	main.cpp Contact.cpp PhoneBook.cpp
-OBJS		=	${SRCS:%.c=$(OBJS_DIR)%.o}
-OBJS_DIR	=	objects/
-NAME		=	phone
-CC			=	c++
-CFLAGS		=	-Wall -Wextra -Werror -std=c++98
-RM			=	rm -rf
+SRCS		=	main.cpp PhoneBook.cpp Contact.cpp
+OBJS		= ${SRCS:%.cpp=$(OBJS_DIR)%.o}
+OBJS_DIR	= objects/
+NAME		= phone
+CC			= c++
+CFLAGS		= -Wall -Werror -Wextra -std=c++98
+RM			= rm -rf
 
-$(OBJS_DIR)%.o:	%.c
+$(OBJS_DIR)%.o:	%.cpp
 			@mkdir -p $(dir $@)
-			@$(CC) $(CFLAGS) -c $< -o $@ -I includes
+			@$(CC) $(CFLAGS) -g -c $< -o $@ -I includes
 
 all:		$(NAME)
 
 $(NAME):	$(OBJS)
-			@$(CC) $(OBJS) -o $(NAME) $(LIBS)
+			@${CC} $(CFLAGS) $(OBJS) -o $(NAME) $(LIBS)
 
 clean:
 			@$(RM) $(OBJS_DIR)

@@ -6,30 +6,33 @@
 /*   By: lufelip2 <lufelip2@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/09 18:15:12 by lufelip2          #+#    #+#             */
-/*   Updated: 2023/05/15 19:45:00 by lufelip2         ###   ########.fr       */
+/*   Updated: 2023/05/15 20:59:32 by lufelip2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Contact.hpp"
 
-Contact::Contact(void) { return ; }
+Contact::Contact(void)
+{
+	this->empty = true;
+}
 Contact::~Contact(void) { return ; }
 
 bool Contact::is_alpha(std::string str)
 {
-	for (char c : str)
+	for (int i = 0; i < (int)str.length(); i++)
 	{
-		if (!std::isalpha(c))
+		if (!std::isalpha(str[i]))
 			return false;
 	}
 	return true;
 }
 
-bool Contact::is_digit(std::string str)
+bool Contact::is_numeric(std::string str)
 {
-	for (char c : str)
+	for (int i = 0; i < (int)str.length(); i++)
 	{
-		if (!std::isdigit(c))
+		if (!std::isdigit(str[i]))
 			return false;
 	}
 	return true;
@@ -37,7 +40,12 @@ bool Contact::is_digit(std::string str)
 
 bool Contact::is_alpha_numeric(std::string str)
 {
-	return (this->is_alpha(str) && this->is_digit(str));
+	for (int i = 0; i < (int)str.length(); i++)
+	{
+		if (!std::isdigit(str[i]) && !std::isalpha(str[i]))
+			return false;
+	}
+	return true;
 }
 
 void	Contact::set_first_name( void )
@@ -98,7 +106,7 @@ void	Contact::set_phone_number( void )
 		std::getline(std::cin, phone_number);
 		if (std::cin.eof())
 			return ;
-		if (!this->is_digit(last_name))
+		if (!this->is_numeric(phone_number))
 		{
 			std::cout << "Only numeric characters, please :)\n\n";
 			continue ;
@@ -144,7 +152,7 @@ void	Contact::set_darkest_secret( void )
 		std::getline(std::cin, darkest_secret);
 		if (std::cin.eof())
 			return ;
-		if (!this->is_alpha(darkest_secret))
+		if (!this->is_alpha_numeric(darkest_secret))
 		{
 			std::cout << "Only alphanumeric characters, please :)\n\n";
 			continue ;

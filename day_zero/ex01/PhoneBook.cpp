@@ -6,13 +6,16 @@
 /*   By: lufelip2 <lufelip2@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/10 18:17:21 by lufelip2          #+#    #+#             */
-/*   Updated: 2023/05/15 19:03:28 by lufelip2         ###   ########.fr       */
+/*   Updated: 2023/05/15 21:02:52 by lufelip2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PhoneBook.hpp"
 
-PhoneBook::PhoneBook( void ) { return ; }
+PhoneBook::PhoneBook( void )
+{
+	this->actual_index = 0;
+}
 PhoneBook::~PhoneBook( void ) { return ; }
 
 void	PhoneBook::show_contacts( void )
@@ -33,6 +36,26 @@ void	PhoneBook::show_contacts( void )
 	std::cout << "---------------------------------------------\n\n";
 }
 
+int PhoneBook::atoi(std::string str)
+{
+	int		num = 0;
+	int		sign = 1;
+	size_t	i = 0;
+
+	// Skip whitespace
+	while (i < str.size() && isspace(str[i]))
+		i++;
+
+	// Handle sign
+	if (i < str.size() && (str[i] == '+' || str[i] == '-'))
+		sign = (str[i++] == '-') ? -1 : 1;
+
+	// Convert digits
+	while (i < str.size() && isdigit(str[i]))
+		num = num * 10 + (str[i++] - '0');
+	return num * sign;
+}
+
 int		PhoneBook::get_contact_index( void )
 {
 	std::string	contact_index;
@@ -44,7 +67,7 @@ int		PhoneBook::get_contact_index( void )
 		std::getline(std::cin, contact_index);
 		if (std::cin.eof())
 			return (-1);
-		index = std::stoi(contact_index);
+		index = this->atoi(contact_index);
 		if (index < 1 || index > 8)
 		{
 			std::cout << "Contact not found... Damn it :(" << std::endl;

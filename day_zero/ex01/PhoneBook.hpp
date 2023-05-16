@@ -6,7 +6,7 @@
 /*   By: lufelip2 <lufelip2@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/30 17:21:05 by lufelip2          #+#    #+#             */
-/*   Updated: 2023/05/15 17:43:31 by lufelip2         ###   ########.fr       */
+/*   Updated: 2023/05/15 20:38:38 by lufelip2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 # include <iostream>
 # include <string>
+# include <cstdlib>
 
 #include "Contact.hpp"
 
@@ -27,11 +28,12 @@ class PhoneBook {
 
 private:
 	Contact	contacts[8];
-	int		actual_index = 0;
+	int		actual_index;
 
 	void	show_contacts( void );
 	int		get_contact_index( void );
 	void	show_menu( void );
+	int		atoi(std::string str);
 
 public:
 	PhoneBook( void );
