@@ -6,7 +6,7 @@
 /*   By: lufelip2 <lufelip2@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/10 18:17:21 by lufelip2          #+#    #+#             */
-/*   Updated: 2023/05/15 21:02:52 by lufelip2         ###   ########.fr       */
+/*   Updated: 2023/05/15 21:27:15 by lufelip2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,15 +43,15 @@ int PhoneBook::atoi(std::string str)
 	size_t	i = 0;
 
 	// Skip whitespace
-	while (i < str.size() && isspace(str[i]))
+	while (i < str.length() && isspace(str[i]))
 		i++;
 
 	// Handle sign
-	if (i < str.size() && (str[i] == '+' || str[i] == '-'))
+	if (i < str.length() && (str[i] == '+' || str[i] == '-'))
 		sign = (str[i++] == '-') ? -1 : 1;
 
 	// Convert digits
-	while (i < str.size() && isdigit(str[i]))
+	while (i < str.length() && isdigit(str[i]))
 		num = num * 10 + (str[i++] - '0');
 	return num * sign;
 }
@@ -70,7 +70,7 @@ int		PhoneBook::get_contact_index( void )
 		index = this->atoi(contact_index);
 		if (index < 1 || index > 8)
 		{
-			std::cout << "Contact not found... Damn it :(" << std::endl;
+			std::cout << "\033[31mContact not found... Damn it :(\033[0m" << std::endl;
 			continue ;
 		}
 		return (index - 1);
@@ -87,7 +87,7 @@ void	PhoneBook::search( void )
 	if (index == -1)
 		return ;
 	if (this->contacts[index].is_empty())
-		std::cout << "This contact is empty :)" << std::endl;
+		std::cout << "\033[31mThis contact is empty :)\033[0m" << std::endl;
 	else
 		std::cout << this->contacts[index].info();
 }

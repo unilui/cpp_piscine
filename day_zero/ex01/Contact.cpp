@@ -6,7 +6,7 @@
 /*   By: lufelip2 <lufelip2@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/09 18:15:12 by lufelip2          #+#    #+#             */
-/*   Updated: 2023/05/15 20:59:32 by lufelip2         ###   ########.fr       */
+/*   Updated: 2023/05/15 21:33:38 by lufelip2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,7 @@ void	Contact::set_first_name( void )
 			return ;
 		if (!this->is_alpha(first_name))
 		{
-			std::cout << "Only alphabetic characters, please :)\n\n";
+			std::cout << "\033[31mOnly alphabetic characters, please :)\033[0m\n\n";
 			continue ;
 		}
 		if (first_name.length() > 0)
@@ -85,7 +85,7 @@ void	Contact::set_last_name( void )
 			return ;
 		if (!this->is_alpha(last_name))
 		{
-			std::cout << "Only alphabetic characters, please :)\n\n";
+			std::cout << "\033[31mOnly alphabetic characters, please :)\033[0m\n\n";
 			continue ;
 		}
 		if (last_name.length() > 0)
@@ -108,7 +108,7 @@ void	Contact::set_phone_number( void )
 			return ;
 		if (!this->is_numeric(phone_number))
 		{
-			std::cout << "Only numeric characters, please :)\n\n";
+			std::cout << "\033[31mOnly numeric characters, please :)\033[0m\n\n";
 			continue ;
 		}
 		if (phone_number.length() > 0)
@@ -131,7 +131,7 @@ void	Contact::set_nickname( void )
 			return ;
 		if (!this->is_alpha(nickname))
 		{
-			std::cout << "Only alphabetic characters, please :)\n\n";
+			std::cout << "\033[31mOnly alphabetic characters, please :)\033[0m\n\n";
 			continue ;
 		}
 		if (nickname.length() > 0)
@@ -154,7 +154,7 @@ void	Contact::set_darkest_secret( void )
 			return ;
 		if (!this->is_alpha_numeric(darkest_secret))
 		{
-			std::cout << "Only alphanumeric characters, please :)\n\n";
+			std::cout << "\033[31mOnly alphanumeric characters, please :)\033[0m\n\n";
 			continue ;
 		}
 		if (darkest_secret.length() > 0)

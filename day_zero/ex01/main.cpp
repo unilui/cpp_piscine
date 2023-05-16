@@ -6,7 +6,7 @@
 /*   By: lufelip2 <lufelip2@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/15 20:10:07 by lufelip2          #+#    #+#             */
-/*   Updated: 2023/05/15 20:10:11 by lufelip2         ###   ########.fr       */
+/*   Updated: 2023/05/15 21:35:40 by lufelip2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ int	main(void)
 	{
 		if (phonebook.invalid_input())
 		{
-			phonebook.whisper("\nGod knows I tried :)");
+			phonebook.whisper("\n\033[33mGod knows I tried :)\033[0m");
 			return (1);
 		}
 		switch (phonebook.get_option()) {
@@ -31,15 +31,15 @@ int	main(void)
 				phonebook.search();
 				break;
 			case _PHONE_EXIT_:
-				phonebook.whisper("Not sorry to see you go :)");
+				phonebook.whisper("\033[33mNot sorry to see you go :)\033[0m");
 				return (0);
 				break;
 			case _PHONE_INVALID_:
-				phonebook.whisper("\nGod knows I tried :)");
+				phonebook.whisper("\n\033[33mGod knows I tried :)\033[0m");
 				return (1);
 				break;
 			default:
-				phonebook.whisper("Did you read the fucking options? :)");
+				phonebook.whisper("\033[33mDid you read the fucking options? :)\033[0m");
 		}
 	}
 	return (0);
