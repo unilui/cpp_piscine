@@ -10,14 +10,13 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.cpp"
+#include "Zombie.hpp"
 
 Zombie* zombieHorde( int N, std::string name )
 {
-	Zombie	*horde = static_cast<Zombie*>(operator new[](N * sizeof(Zombie)));
+	Zombie	*horde = new Zombie[N];
 
-	horde = static_cast<Zombie*>(operator new[](N * sizeof(Zombie)));
 	for (int zombie = 0; zombie < N; zombie++)
-		new(&horde[zombie]) Zombie(name);
+		horde[zombie].set_name(name);
 	return (horde);
 }

@@ -11,17 +11,28 @@
 /* ************************************************************************** */
 
 #include "Zombie.hpp"
+#include <cstdlib>
+#include <ctime>
 
 Zombie* zombieHorde( int N, std::string name );
 
 int	main( void )
 {
-	int		number_of_zombies = 5;
-	Zombie	*horde;
+	std::string	friends[5] = {"Renato", "Davy", "Renan", "Aline", "Luanny"};
+	int			number_of_zombies = 5;
+	Zombie		*horde;
+	int			chosen_friend;
 
-	horde = zombieHorde(number_of_zombies, "Pedro");
+	// Seed the random number generator
+	std::srand(std::time(0));
+
+	// Generate a random number between 0 and 4
+	chosen_friend = std::rand() % 5;
+
+	horde = zombieHorde(number_of_zombies, friends[chosen_friend]);
 	for (int zombie = 0; zombie < number_of_zombies; zombie++)
 		horde[zombie].announce();
-
+	
+	delete [] horde;
 	return (0);
 }
