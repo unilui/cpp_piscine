@@ -6,7 +6,7 @@
 /*   By: lufelip2 <lufelip2@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/30 05:13:18 by lufelip2          #+#    #+#             */
-/*   Updated: 2023/04/30 17:09:27 by lufelip2         ###   ########.fr       */
+/*   Updated: 2023/05/16 21:27:29 by lufelip2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,4 +36,12 @@ int	main(int argc, char **argv)
 	else
 		std::cout << default_message << std::endl;
 	return (0);
+}
+int main() {// Example C-style string
+
+    std::string cppString(cString); // Convert C-string to std::string
+
+    std::cout << "C++ string: " << cppString << std::endl;
+
+    return 0;
 }
