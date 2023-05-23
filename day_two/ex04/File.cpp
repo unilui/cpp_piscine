@@ -14,7 +14,7 @@
 
 File::~File( void ) { return ; };
 
-File::File(std::string file_path) : loaded(false)
+File::File(std::string file_path) : file_loaded(false)
 {
 	std::ifstream		input_file(file_path.c_str());
 	std::stringstream	buffer;
@@ -25,7 +25,7 @@ File::File(std::string file_path) : loaded(false)
 	this->file_content = buffer.str();
 
 	input_file.close();
-	this->loaded = true;
+	this->file_loaded = true;
 };
 
 void	File::replace(std::string str, std::string target)
@@ -47,8 +47,10 @@ void	File::replace(std::string str, std::string target)
 	this->file_content = new_line;
 	found = this->file_content.find(str);
 	if (found == std::string::npos) return ;
+	std::cout << this->file_content << std::endl;
+	std::cout << found << std::endl;
 
-	this->replace(str, target);
+	//this->replace(str, target);
 }
 
 bool	File::save(std::string file_path)
@@ -61,4 +63,9 @@ bool	File::save(std::string file_path)
 	output_file.close();
 
 	return true;
+}
+
+bool	File::loaded(void)
+{
+	return this->file_loaded;
 }

@@ -22,14 +22,15 @@ class File
 {
 private:
 	std::string	file_content;
-	bool		loaded;
+	bool		file_loaded;
 
 public:
 	File(std::string file_path);
-	~File( void );
+	~File(void);
 
 	void	replace(std::string str, std::string target);
 	bool	save(std::string file_path);
+	bool	loaded(void);
 };
 
 #endif

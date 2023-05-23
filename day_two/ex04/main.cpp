@@ -18,18 +18,42 @@ bool	valid_args(int argc, char **argv)
 	if (argc != 4)
 	{
 		std::cout << "Required three arguments:" << std::endl;
-		std::cout << "<filename> <str_to_replace> <str>" << std::endl;
+		std::cout << "<filename> <str_to_replace> <target_str>" << std::endl;
 		return false;
+	}
+	for (int i = 0; i < 4; i++)
+	{
+		if (*argv[i] == '\0')
+		{
+			std::cout << "No empty argument allowed :/" << std::endl;
+			return false;
+		}
 	}
 	return true;
 }
 
 int	main(int argc, char **argv)
 {
-	if (!valid_args(argc, argv)) return ;
-	File	file("teste.txt");
+	if (!valid_args(argc, argv))
+		return (1);
 
-	file.replace("lindo", "");
-	file.save("teste.replace");
+	std::string	file_path(argv[1]);	
+	std::string	str_to_replace(argv[2]);
+	std::string	target_str(argv[3]);
+	File		file(file_path);
+
+	if (!file.loaded())
+	{
+		std::cout << "Couldn't open " << argv[1] << std::endl;
+		return (2);
+	}
+	
+	file.replace(str_to_replace, target_str);
+	
+	if (!file.save(file_path.append(".replace")))
+	{
+		std::cout << "Couldn't save " << argv[1] << std::endl;
+		return (3);
+	}
 	return (0);
 }
