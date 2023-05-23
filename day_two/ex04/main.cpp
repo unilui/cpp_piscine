@@ -6,11 +6,12 @@
 /*   By: lufelip2 <lufelip2@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/19 03:20:06 by lufelip2          #+#    #+#             */
-/*   Updated: 2023/05/19 20:04:17 by lufelip2         ###   ########.fr       */
+/*   Updated: 2023/05/23 19:37:38 by lufelip2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
+#include <string>
 #include "File.hpp"
 
 bool	valid_args(int argc, char **argv)
@@ -37,7 +38,7 @@ int	main(int argc, char **argv)
 	if (!valid_args(argc, argv))
 		return (1);
 
-	std::string	file_path(argv[1]);	
+	std::string	file_path(argv[1]);
 	std::string	str_to_replace(argv[2]);
 	std::string	target_str(argv[3]);
 	File		file(file_path);
@@ -47,9 +48,9 @@ int	main(int argc, char **argv)
 		std::cout << "Couldn't open " << argv[1] << std::endl;
 		return (2);
 	}
-	
+
 	file.replace(str_to_replace, target_str);
-	
+
 	if (!file.save(file_path.append(".replace")))
 	{
 		std::cout << "Couldn't save " << argv[1] << std::endl;

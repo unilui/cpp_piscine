@@ -6,7 +6,7 @@
 /*   By: lufelip2 <lufelip2@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/19 03:29:40 by lufelip2          #+#    #+#             */
-/*   Updated: 2023/05/19 05:52:32 by lufelip2         ###   ########.fr       */
+/*   Updated: 2023/05/23 19:29:59 by lufelip2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ public:
 	File(std::string file_path);
 	~File(void);
 
-	void	replace(std::string str, std::string target);
+	void	replace(std::string str, std::string target, int pos = 0);
 	bool	save(std::string file_path);
 	bool	loaded(void);
 };
