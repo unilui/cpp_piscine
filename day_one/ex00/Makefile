@@ -1,7 +1,7 @@
-SRCS		= main.cpp Fixed.cpp
+SRCS		=	main.cpp Zombie.cpp newZombie.cpp randomChump.cpp
 OBJS		= ${SRCS:%.cpp=$(OBJS_DIR)%.o}
 OBJS_DIR	= objects/
-NAME		= fixed
+NAME		= zombie_generator
 CC			= c++
 CFLAGS		= -Wall -Werror -Wextra -std=c++98
 RM			= rm -rf
