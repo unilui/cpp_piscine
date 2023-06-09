@@ -1,7 +1,7 @@
 SRCS		= main.cpp Fixed.cpp
 OBJS		= ${SRCS:%.cpp=$(OBJS_DIR)%.o}
 OBJS_DIR	= objects/
-NAME		= harl
+NAME		= fixed
 CC			= c++
 CFLAGS		= -Wall -Werror -Wextra -std=c++98
 RM			= rm -rf
