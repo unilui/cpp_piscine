@@ -6,7 +6,7 @@
 /*   By: lufelip2 <lufelip2@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/25 04:45:01 by lufelip2          #+#    #+#             */
-/*   Updated: 2023/06/07 03:21:15 by lufelip2         ###   ########.fr       */
+/*   Updated: 2023/06/20 18:06:29 by lufelip2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,7 @@ Fixed::Fixed(const Fixed& fixed_to_copy)
 Fixed::~Fixed()
 {
 	std::cout << "Destructor called" << std::endl;
-}
-
+} 
 
 Fixed& Fixed::operator=(const Fixed& fixed_to_copy)
 {
