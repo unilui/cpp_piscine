@@ -1,7 +1,7 @@
 SRCS		= main.cpp Bureaucrat.cpp
 OBJS		= ${SRCS:%.cpp=$(OBJS_DIR)%.o}
 OBJS_DIR	= objects/
-NAME		= bureaucrat
+NAME		= bureaucrat_plus
 CC			= c++
 CFLAGS		= -Wall -Werror -Wextra -std=c++98
 RM			= rm -rf
